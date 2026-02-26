@@ -1,6 +1,6 @@
 * {
     font-family:"Playfair Display" ,serif; /* خط أوضح للمحتوى الإنجليزي */
-    font-weight: 700; 
+    font-weight: 800; 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -31,9 +31,10 @@ header {
     max-width: 100%;       /* الهيدر الثابت يفضل أن يكون بعرض الصفحة كاملاً */
     padding: 2rem 3rem;
     
+    
     /* لون خلفية صريح مع شفافية بسيطة (Glassmorphism) لشكل احترافي */
-    background-color: #edf2f711; 
-    backdrop-filter: blur(5px); /* تأثير ضبابي للخلفية يظهر كأنه زجاج */
+    background-color: #edf2f700; 
+    backdrop-filter: blur(4px); /* تأثير ضبابي للخلفية يظهر كأنه زجاج */
     
     border-bottom: 3px solid #0b0f13c7; 
     border-radius: 0 0 8px 8px; /* الانحناء فقط من الأسفل ليكون متناسقاً مع السقف */
@@ -59,17 +60,29 @@ nav ul {
 }
 
 nav a {
+    width: 160px;
+    text-align: center;
+}
+
+nav a {
     text-decoration: none;
-    color: #04052F; /* لون الروابط أزرق هادئ */
+    color: #04052F;
     font-weight: 600;
-    transition: 0.3s;
-    padding: 5px 10px;
+
+    display: block;      /* مهم */
+    text-align: center;  /* توسيط النص */
+
+    padding: 10px 0;
+    border-radius: 60px;
+    border: 1px solid #04052F;
+
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    color: #100f0fa9;
-    background-color: #100f0f00; /* تأثير خلفية عند التمرير */
-
+    color: #edf2f7;
+    background-color: #191144;
+    transform: translateY(-2px);
 }
 .info-table{
 }
@@ -131,21 +144,6 @@ h2 {
     padding-bottom: 5px;
     scroll-margin-top: 180px;   
 }
-.star-button {
-    font-size: 30px;      
-    width: 50px;          
-    height: 50px;         
-    background-color: #edf2f765;
-    cursor: pointer;       
-    display: flex;         
-    align-items: center; 
-    justify-content: center;
-    transition: transform 0.2s; /* حركة سلسة */
-}
-
-.star-button:hover {
-    transform: scale(1.2) translateY(-60px); /* يكبر ويترفع */
-}
 
 .book-link {
     width: 200px; /* حجم الكتاب */
@@ -167,12 +165,36 @@ h2 {
     background-color: transparent; /* يشيل أي خلفية بيضاء */
 }
 .mode-button img {
-    width: 100px;
-    cursor: pointer;
-    transition: transform 0.3s; /* الحركة سلسة */
+
+    width: 100px;              /* عرض الصورة */
+    height: auto;              /* يحافظ على التناسق */
+
+    cursor: pointer;           /* شكل اليد عند المرور */
+
+    transition: all 0.3s ease;  /* حركة سلسة لكل الخصائص */
+
+    filter: brightness(1);     /* التحكم في درجة الإضاءة (اللون) */
 }
 
-/* عند المرور */
+
+/* التحكم في ارتفاع الزر نفسه */
+.mode-button {
+    height: 66px;            /* ارتفاع المساحة الكاملة للزر */
+    display: flex;
+    align-items: center;      /* توسيط الصورة عموديًا */
+    justify-content: center;  /* توسيط أفقي */
+      margin-top: -20px;    
+  
+}
+
+
+/* عند المرور بالماوس */
 .mode-button:hover img {
-    transform: rotate(-20deg) scale(1.2) translateY(-10px); /* رفع للأعلى */
+
+ transform: rotate(-20deg) scale(1.2) translateY(-10px);
+    /* دوران + تكبير + رفع للأعلى */
+
+    filter: brightness(2.3);  
+    /* زيادة الإضاءة عند المرور */
+    fill: #ffffff;
 }
