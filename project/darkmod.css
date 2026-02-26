@@ -24,7 +24,7 @@ header {
     z-index: 1000; /* يضمن ظهور الهيدر فوق كل العناصر */
     margin: 0 auto 1.5rem auto; /* مسافة تحت الهيدر */
     max-width: 100%; 
-    padding: 1rem 3rem; 
+    padding: 2rem 4rem; 
     background-color: #1f212900; /* لون هيدر شفاف مع تأثير الزجاج */
     backdrop-filter: blur(5px); /* تأثير ضبابي للخلفية */
     border-bottom: 3px solid #16181d; 
@@ -42,25 +42,33 @@ header {
 }
 } 
 
-nav ul { 
-    list-style: none; 
-    display: flex; 
-    gap: 1.5rem; 
-    padding: 1rem 0; 
-} 
+nav ul {
+    list-style: none;
+    display: flex;      /* يخلي الأزرار أفقي */
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
 
-nav a { 
-    text-decoration: none; 
-    color: #ffffff; /* لون الروابط واضح */
-    font-weight: 600; 
-    transition: 0.3s; 
-    padding: 5px 10px; 
-} 
+.nav-btn {
+    width: 130px;             /* عرض ثابت لكل الزرار */
+    height: 50px;             /* ارتفاع ثابت لكل الزرار */
+    display: flex;            
+    align-items: center;      /* توسيط النص عمودي */
+    justify-content: center;  /* توسيط النص أفقي */
 
-nav a:hover { 
-    color: #ffffff81; 
-    background-color: #7b895c00; /* تغيير خلفية عند المرور بالماوس */
-} 
+    border-radius: 30px;      /* شكل بيضاوي */
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    border: 1px solid #422385fa;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #51197b;
+    color: #000000;
+    transform: translateY(-2px);
+}
 
 .info-table, table { 
     width: 100%; 
@@ -158,24 +166,41 @@ h2 {
 .mode-button {
     display: inline-block;
     padding: 6px;
-    border-radius: 50%;
+    border-radius: 100%;
     transition: 0.3s;
 
     /* رفع الزر شوية */
     position: relative;
-    top: -30px;   /* تحرك للأعلى، قلل أو زد  */
+    top: -20px;   /* تحرك للأعلى، قلل أو زد  */
+}
+
+.mode-button {
+    width: 80px;             /* عرض الزر */
+    height: 80px;            /* ارتفاع الزر = العرض عشان يصير دائرة */
+    border-radius: 50%;      /* يجعل الشكل دائري */
+    display: flex;            /* لتوسيط الصورة داخل الزر */
+    align-items: center;      /* توسيط عمودي */
+    justify-content: center;  /* توسيط أفقي */
+    background-color: #ffffff00; /* خلفية الزر */
+    border: 2px solid #422385fa; /* حدود إذا تحب */
+    cursor: pointer;
+    transition: all 0.3s ease; /* حركة سلسة */
 }
 
 .mode-button img {
-    width: 100px;     /* حجم الشمس */
+    width: 70px;      /* حجم الصورة داخل الزر */
     height: auto;
-    display: block;
-    cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
+}
+
+/* عند المرور على الزر */
+.mode-button:hover {
+    background-color: #51197b; /* تغير لون الخلفية */
+    transform: scale(1.1);     /* تكبير خفيف للزر كله */
 }
 
 .mode-button:hover img {
-    transform: rotate(15deg) scale(1.1); /* حركة خفيفة لطيفة */
+    transform: rotate(15deg) scale(1.1); /* دوران وتكبير للصورة داخل الزر */
+     filter: brightness(1.3);  
 }
-
 
