@@ -1,0 +1,240 @@
+* { 
+    font-family: "Playfair Display", serif; /* خط واضح وسهل القراءة للمحتوى الإنجليزي */
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; /* تمرير الصفحة بسلاسة */
+} 
+
+body { 
+    background-color: #16181D; /* خلفية داكنة مريحة للعين */
+    color: #eff0f3; /* لون النص الأساسي مناسب للقراءة على الخلفية الداكنة */
+    max-width: 1100px; /* يحدد عرض المحتوى ليكون مركزي وسهل القراءة */
+    margin: 2rem auto; /* يوضع المحتوى في منتصف الصفحة مع مساحة فوق وتحت */
+    padding: 0 20px; /* مسافة داخلية جانبية */
+} 
+
+header { 
+     width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* يضع عناصر الهيدر في المنتصف */
+    position: sticky; /* الهيدر يلتصق بالأعلى عند التمرير */
+    top: 0; 
+    z-index: 1000; /* يضمن ظهور الهيدر فوق كل العناصر */
+    margin: 0 auto 1.5rem auto; /* مسافة تحت الهيدر */
+    max-width: 100%; 
+    padding: 2rem 4rem; 
+    background-color: #1f212900; /* لون هيدر شفاف مع تأثير الزجاج */
+    backdrop-filter: blur(5px); /* تأثير ضبابي للخلفية */
+    border-bottom: 3px solid #16181d; 
+    border-radius: 0 0 8px 8px; /* تقوس أسفل الهيدر */
+
+    .logo {
+    width: 200px;                    /* حجم الشعار */
+    cursor: pointer;                /* المؤشر يتغير عند المرور */
+    transition: transform 0.3s;     /* حركة سلسة عند hover */
+}
+
+/* حركة الشعار عند المرور */
+.logo:hover {
+    transform: scale(1.1);          /* تكبر الصورة شوي عند hover */
+}
+} 
+
+nav ul {
+    list-style: none;
+    display: flex;      /* يخلي الأزرار أفقي */
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.nav-btn {
+    width: 130px;             /* عرض ثابت لكل الزرار */
+    height: 50px;             /* ارتفاع ثابت لكل الزرار */
+    display: flex;            
+    align-items: center;      /* توسيط النص عمودي */
+    justify-content: center;  /* توسيط النص أفقي */
+
+    border-radius: 30px;      /* شكل بيضاوي */
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    border: 1px solid #422385fa;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #51197b;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.info-table, table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 2rem; 
+    background-color: #21242c80; /* خلفية للجدول شبيهة بالهيدر */
+    border: 1px solid #16181D; 
+} 
+
+th { 
+    background-color: #21242c80; 
+    color: #ffffff; 
+    padding: 12px; 
+    text-align: left; /* نصوص العناوين على اليسار */
+} 
+
+td { 
+    padding: 12px; 
+} 
+
+.info-table tr:nth-child(even) { 
+    background-color: #16181D; /* صفوف مزدوجة بلون أغمق لتمييزها */
+} 
+
+.label { 
+    background-color: #d9dbdf; /* خلفية خفيفة للـ label */
+    color: #eeecec; /* لون النص */
+    font-weight: bold; 
+    width: 25%; /* عرض ثابت لتناسق الجدول */
+} 
+
+h3 { 
+    color: #faf6f6; 
+    background-color: #4c28cf46; /* خلفية عنوان فرعي */
+    border-left: 8px solid #0084ff56; /* خط جانبي يميز العنوان */
+    padding: 12px 20px; 
+    margin-top: 2.5rem; 
+    margin-bottom: 1.5rem; 
+    border-radius: 5px; 
+    display: inline-block; 
+    min-width: 300px; 
+    scroll-margin-top: 180px; /* يمنع اختفاء العنوان تحت الهيدر عند التمرير */
+} 
+
+h2 { 
+    color: #f8f8f8; 
+    margin: 2rem 0 1rem 0; 
+    border-bottom: 2px solid #27ae5f00; /* خط تحت العنوان الرئيسي */
+    display: inline-block; 
+    padding-bottom: 5px; 
+    scroll-margin-top: 180px; 
+} 
+
+.star-button { 
+     font-size: 30px;       /* حجم النجمة */
+    width: 50px;          /* عرض الزر */
+    height: 50px;  /* ارتفاع الزر */
+    background-color: #21242c80; /* خلفية الزر داكنة */
+    cursor: pointer; /* يغير شكل المؤشر عند المرور */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+} 
+
+.star-button:hover { 
+    transform: scale(1.2); /* يكبر الزر عند المرور */
+    transition: 0.2s; /* حركة سلسة */
+} 
+.book-link {
+    width: 200px; /* حجم الكتاب */
+    border-radius: 8px; /* زوايا منحنية */
+    cursor: pointer; /* المؤشر يتحول ليد عند المرور */
+    transition: transform 0.2s; /* حركة سلسة عند التكبير */
+     display: block;      /* يخليها عنصر بلوك */
+     margin-left: 70px; 
+
+}
+
+.book-link:hover {
+    transform: scale(1.05); /* تكبير بسيط لما تمرر الفأرة */
+}
+.bot-img{
+    width: 280px; /* حجم الكتاب */
+    border-radius: 8px;
+    margin-bottom:20px ;
+    background-color: transparent; /* يشيل أي خلفية بيضاء */
+}
+.mode-button {
+    display: inline-block;
+    padding: 6px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.mode-button {
+    display: inline-block;
+    padding: 6px;
+    border-radius: 100%;
+    transition: 0.3s;
+
+    /* رفع الزر شوية */
+    position: relative;
+    top: -20px;   /* تحرك للأعلى، قلل أو زد  */
+}
+
+.mode-button {
+    width: 80px;             /* عرض الزر */
+    height: 80px;            /* ارتفاع الزر = العرض عشان يصير دائرة */
+    border-radius: 50%;      /* يجعل الشكل دائري */
+    display: flex;            /* لتوسيط الصورة داخل الزر */
+    align-items: center;      /* توسيط عمودي */
+    justify-content: center;  /* توسيط أفقي */
+    background-color: #ffffff00; /* خلفية الزر */
+    border: 2px solid #422385fa; /* حدود إذا تحب */
+    cursor: pointer;
+    transition: all 0.3s ease; /* حركة سلسة */
+}
+
+.mode-button img {
+    width: 70px;      /* حجم الصورة داخل الزر */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* عند المرور على الزر */
+.mode-button:hover {
+    background-color: #51197b; /* تغير لون الخلفية */
+    transform: scale(1.1);     /* تكبير خفيف للزر كله */
+}
+
+.mode-button:hover img {
+    transform: rotate(15deg) scale(1.1); /* دوران وتكبير للصورة داخل الزر */
+     filter: brightness(1.3);  
+}
+
+modee-button {
+    width:  80px;             /* عرض الزر */
+    height: 80px;            /* ارتفاع الزر = العرض عشان يصير دائرة */
+    border-radius: 50%;      /* يجعل الشكل دائري */
+    display: flex;            /* لتوسيط الصورة داخل الزر */
+    align-items: center;      /* توسيط عمودي */
+    justify-content: center;  /* توسيط أفقي */
+    background-color: #ffffff00; /* خلفية الزر */
+    border: 2px solid #422385fa; /* حدود إذا تحب */
+    cursor: pointer;
+    transition: all 0.3s ease; /* حركة سلسة */
+    position: relative;
+    top: -20px; 
+}
+
+.modee-button img {
+    width: 80px;      /* حجم الصورة داخل الزر */
+    height: auto;
+    transition: transform 0.3s ease;
+    position: relative;
+    top: -20px; 
+}
+
+/* عند المرور على الزر */
+.modee-button:hover {
+    background-color: #50197b00; /* تغير لون الخلفية */
+    transform: scale(1.1); 
+        /* تكبير خفيف للزر كله */
+}
+
+.modee-button:hover img {
+    transform: rotate(15deg) scale(1.1); /* دوران وتكبير للصورة داخل الزر */
+     filter: brightness(1.3);  
+}

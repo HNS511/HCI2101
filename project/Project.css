@@ -1,0 +1,234 @@
+* {
+    font-family:"Playfair Display" ,serif; /* خط أوضح للمحتوى الإنجليزي */
+    font-weight: 800; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #7b895c3c; /* لون خلفية رمادي مائل للأزرق خفيف جداً، مريح للعين */
+    color: #2c3e50; /* لون نص أساسي غامق بدلاً من الأسود الصريح */
+   max-width: 1100px; /* هذا العرض المثالي للقراءة، يخلي المحتوى في النص */
+    margin: 2rem auto; /* auto من اليمين واليسار هي اللي توسط المحتوى */
+    padding: 0 20px;   
+}
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* خصائص التثبيت الاحترافية */
+    position: sticky;      /* يلتصق بالأعلى عند التمرير */
+    top: 0;                /* مكان الالتصاق */
+    z-index: 1000;         /* لضمان ظهوره فوق الجداول والعناصر الأخرى */
+    
+    /* التحسينات الجمالية */
+    margin: 0 auto 1.5rem auto; /* صفرنا المارجن العلوي ليلتصق تماماً */
+    max-width: 100%;       /* الهيدر الثابت يفضل أن يكون بعرض الصفحة كاملاً */
+    padding: 2rem 3rem;
+    
+    
+    /* لون خلفية صريح مع شفافية بسيطة (Glassmorphism) لشكل احترافي */
+    background-color: #edf2f700; 
+    backdrop-filter: blur(4px); /* تأثير ضبابي للخلفية يظهر كأنه زجاج */
+    
+    border-bottom: 3px solid #0b0f13c7; 
+    border-radius: 0 0 8px 8px; /* الانحناء فقط من الأسفل ليكون متناسقاً مع السقف */
+
+    .logo {
+    width: 200px;                    /* حجم الشعار */
+    cursor: pointer;                /* المؤشر يتغير عند المرور */
+    transition: transform 0.3s;     /* حركة سلسة عند hover */
+}
+
+/* حركة الشعار عند المرور */
+.logo:hover {
+    transform: scale(1.1);          /* تكبر الصورة شوي عند hover */
+}
+    
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+nav a {
+    width: 130px;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #04052F;
+    font-weight: 600;
+
+    display: block;      /* مهم */
+    text-align: center;  /* توسيط النص */
+
+    padding: 10px 0;
+    border-radius: 60px;
+    border: 1px solid #04052F;
+
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #edf2f7;
+    background-color: #191144;
+    transform: translateY(-2px);
+}
+.info-table{
+}
+
+/* تنسيق الجداول */
+.info-table, table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background-color: #edf2f78a;
+    border: 1px solid #edf2f7;
+}
+
+/* العناوين داخل الجداول */
+th {
+    background-color: #CAA8FF33;
+    color:#1A202C;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+}
+
+.info-table tr:nth-child(even) {
+    background-color: #f8f9faa1; /* لون رمادي فاتح جداً للصفوف الزوجية */
+}
+
+
+
+/* تعديل كلاس الـ label اللي كان أسود */
+.label {
+    background-color: #f1f4f8; /* لون رمادي مزرق خفيف جداً */
+    color: #3e6997; /* لون النص أزرق */
+    font-weight: bold;
+    width: 25%;
+}
+
+/* تنسيق العناوين البارزة */
+h3 {
+    color: #ffffff;
+    background-color: #191144; /* خلفية زرقاء احترافية */
+    border-left: 8px solid #0e0446; /* إضافة لمسة خضراء (مثل شعار الهيئة) من اليسار */
+    padding: 12px 20px;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px 5px 5px 5px; /* زوايا منحنية من جهة واحدة */
+    display: inline-block;
+    min-width: 300px;
+    scroll-margin-top: 180px; /* لضمان أن العنوان لا يختفي تحت الهيدر الثابت عند التمرير */
+}
+
+h2 {
+    color: #2c3e50;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 2px solid #000000; /* خط أخضر تحت العنوان الرئيسي A */
+    display: inline-block;
+    padding-bottom: 5px;
+    scroll-margin-top: 180px;   
+}
+
+.book-link {
+    width: 200px; /* حجم الكتاب */
+    border-radius: 8px; /* زوايا منحنية */
+    cursor: pointer; /* المؤشر يتحول ليد عند المرور */
+    transition: transform 0.2s; /* حركة سلسة عند التكبير */
+     display: block;      /* يخليها عنصر بلوك */
+    margin-left: 50px; 
+
+}
+
+.book-link:hover {
+    transform: scale(1.05); /* تكبير بسيط لما تمرر الفأرة */
+}
+.bot-img{
+    width: 270px; /* حجم الكتاب */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: transparent; /* يشيل أي خلفية بيضاء */
+}
+.mode-button img {
+
+    width: 85px;              /* عرض الصورة */
+    height: auto;              /* يحافظ على التناسق */
+
+    cursor: pointer;           /* شكل اليد عند المرور */
+
+    transition: all 0.3s ease;  /* حركة سلسة لكل الخصائص */
+
+    filter: brightness(1);     /* التحكم في درجة الإضاءة (اللون) */
+}
+
+
+/* التحكم في ارتفاع الزر نفسه */
+.mode-button {
+     width: 80px;             /* عرض الزر */
+    height: 80px;            /* ارتفاع الزر = العرض عشان يصير دائرة */
+    border-radius: 50%;      /* يجعل الشكل دائري */
+    display: flex;            /* لتوسيط الصورة داخل الزر */
+    align-items: center;      /* توسيط عمودي */
+    justify-content: center;    /* توسيط الصورة عموديًا */
+      margin-top: -20px;    
+  
+}
+
+
+/* عند المرور بالماوس */
+.mode-button:hover img {
+
+ transform: rotate(-20deg) scale(1.2) translateY(-9px);
+    /* دوران + تكبير + رفع للأعلى */
+
+    filter: brightness(2.3);  
+    /* زيادة الإضاءة عند المرور */
+    fill: #ffffff;
+}
+.modee-button {
+    width:  80px;             /* عرض الزر */
+    height: 80px;            /* ارتفاع الزر = العرض عشان يصير دائرة */
+    border-radius: 50%;      /* يجعل الشكل دائري */
+    display: flex;            /* لتوسيط الصورة داخل الزر */
+    align-items: center;      /* توسيط عمودي */
+    justify-content: center;  /* توسيط أفقي */
+    background-color: #ffffff00; /* خلفية الزر */
+    border: 2px solid #422385fa; /* حدود إذا تحب */
+    cursor: pointer;
+    transition: all 0.3s ease; /* حركة سلسة */
+    position: relative;
+    top: -20px; 
+}
+
+.modee-button img {
+    width: 90px;      /* حجم الصورة داخل الزر */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* عند المرور على الزر */
+.modee-button:hover {
+    background-color: #51197b; /* تغير لون الخلفية */
+    transform: scale(1.1); 
+        /* تكبير خفيف للزر كله */
+}
+
+.modee-button:hover img {
+    transform: rotate(15deg) scale(1.1); /* دوران وتكبير للصورة داخل الزر */
+     filter: brightness(1.3);  
+}
