@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+import { ShieldCheck, UserCheck, Clock, Lock, Info, CheckCircle2, XCircle, AlertTriangle, Mail } from 'lucide-react';
+
+const STATUS = {
+  PENDING: 'pending',
+  AGREED: 'agreed',
+  DECLINED: 'declined'
+};
+
+const App = () => {
+  const [status, setStatus] = useState(STATUS.PENDING);
+  const [confirmed, setConfirmed] = useState(false);
+
+  const handleAgree = () => {
+    if (!confirmed) {
+      alert("يرجى تأكيد قراءة الشروط أولاً");
+      return;
+    }
+
+    const timestamp = new Date().toISOString();
+    console.log("User agreed at:", timestamp);
+
+    setStatus(STATUS.AGREED);
+  };
+
+  const handleDecline = () => setStatus(STATUS.DECLINED);
+
+  if (status === STATUS.AGREED) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center border-t-4 border-teal-600">
+          <CheckCircle2 className="w-16 h-16 text-teal-600 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">شكراً لموافقتك!</h2>
+          <p className="text-gray-600 mb-6">تم تسجيل موافقتك بنجاح. اضغط أدناه لبدء الاستبيان.</p>
+          
+          <button 
+            onClick={() => window.location.href = "https://forms.gle/your-link"}
+            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl"
+          >
+            الانتقال للاستبيان
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (status === STATUS.DECLINED) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center border-t-4 border-red-500">
+          <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">شكراً لوقتك</h2>
+          <p className="text-gray-600 mb-6">لقد اخترت عدم المشاركة.</p>
+          
+          <button 
+            onClick={() => setStatus(STATUS.PENDING)}
+            className="text-teal-600 hover:underline"
+          >
+            العودة
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-100 py-12 px-4" dir="rtl">
+      <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+        
+        {/* Header */}
+        <div className="bg-[#006666] p-8 text-white text-center">
+          <ShieldCheck className="w-10 h-10 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold">نموذج الموافقة الإلكتروني</h1>
+          <p className="mt-2">جامعة أم القرى | HCI</p>
+        </div>
+
+        <div className="p-8 space-y-6">
+
+          {/* Purpose */}
+          <Section icon={<Info />} title="الغرض من الدراسة">
+            تقييم سهولة استخدام أنظمة المصادقة البيومترية.
+          </Section>
+
+          {/* Time */}
+          <Section icon={<Clock />} title="المدة">
+            5 إلى 10 دقائق.
+          </Section>
+
+          {/* Risks */}
+          <Section icon={<AlertTriangle />} title="المخاطر والفوائد">
+            لا توجد مخاطر متوقعة، وقد تساعد النتائج في تحسين الأنظمة.
+          </Section>
+
+          {/* Privacy */}
+          <Section icon={<Lock />} title="السرية">
+            لا يتم جمع أي بيانات شخصية.
+          </Section>
+
+          {/* Voluntary */}
+          <Section icon={<UserCheck />} title="المشاركة">
+            المشاركة اختيارية ويمكنك الانسحاب في أي وقت.
+          </Section>
+
+          {/* Contact */}
+          <Section icon={<Mail />} title="التواصل">
+            hci.research@uqu.edu.sa
+          </Section>
+
+          {/* Checkbox */}
+          <div className="mt-6">
+            <label className="flex items-center gap-2 text-sm">
+              <input 
+                type="checkbox" 
+                onChange={(e) => setConfirmed(e.target.checked)} 
+              />
+              أؤكد أنني قرأت وفهمت الشروط
+            </label>
+          </div>
+
+          {/* Buttons */}
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <button 
+              onClick={handleAgree}
+              className="bg-teal-600 text-white py-3 rounded-xl"
+            >
+              أوافق
+            </button>
+
+            <button 
+              onClick={handleDecline}
+              className="border py-3 rounded-xl"
+            >
+              لا أوافق
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Section = ({ icon, title, children }) => (
+  <div className="flex gap-3 items-start">
+    <div className="text-teal-600">{icon}</div>
+    <div>
+      <h3 className="font-bold">{title}</h3>
+      <p className="text-sm text-gray-600">{children}</p>
+    </div>
+  </div>
+);
+
+export default App;
